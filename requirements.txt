@@ -1,0 +1,15 @@
+streamlit>=1.33
+plotly>=5.20
+folium>=0.16
+google-genai>=0.3
+python-dotenv>=1.0
+argopy>=0.1.15
+xarray>=2024.1
+netCDF4>=1.6
+certifi>=2024.2
+langchain
+langchain-community
+langchain-google-genai
+faiss-cpu
+pypdf
+sentence-transformers
