@@ -1,65 +1,292 @@
-# 🌊 FloatChat
+🌊 FloatChat AI
+AI-Powered Ocean Intelligence Assistant using Argo Float Data and Retrieval-Augmented Generation (RAG)
 
-A conversational assistant for exploring **Argo** ocean-float data — ask about
-temperature, salinity, depth profiles, float tracks, and regional anomalies in
-natural language and get back narrative answers with inline maps and charts.
+📌 Project Overview
 
-> The current build ships with **mock Argo data** so the UI runs with zero
-> external services. Swap in a live ERDDAP / `argopy` backend when ready (see
-> [Going live](#going-live)).
+FloatChat AI is an intelligent oceanographic assistant that combines:
 
-## Project layout
+🌊 Real-time Argo Float Ocean Data
+🤖 Google Gemini AI
+📚 Retrieval-Augmented Generation (RAG)
+🔍 Scientific Ocean Research Papers
+📈 Interactive Ocean Visualizations
 
-```
-floatchat/
+The system allows users to query ocean temperature, salinity, thermocline depth, float trajectories, and oceanographic concepts using natural language.
+
+🎯 Problem Statement
+
+Oceanographic datasets are large, complex, and difficult for researchers, students, and decision-makers to interpret quickly.
+
+Traditional systems:
+
+Require domain expertise
+Lack conversational interaction
+Cannot combine live ocean data with scientific literature
+Provide limited contextual explanations
+
+There is a need for an AI-powered assistant that can analyze ocean observations and answer scientific questions using both data and research knowledge.
+
+💡 Proposed Solution
+
+FloatChat AI integrates:
+
+Argo Float observational data
+Google Gemini Large Language Model
+Ocean research papers converted into a searchable knowledge base
+Vector Search using FAISS
+Interactive Streamlit interface
+
+The system automatically decides whether a query should:
+
+Retrieve live ocean data
+Search scientific literature
+Combine both sources
+
+to generate contextual and scientifically grounded answers.
+
+🏗 System Architecture
+                    ┌──────────────────────┐
+                    │      User Query      │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   Streamlit Frontend │
+                    └──────────┬───────────┘
+                               │
+          ┌────────────────────┴──────────────────┐
+          │                                       │
+          ▼                                       ▼
+
+ ┌─────────────────┐                  ┌─────────────────┐
+ │  FloatChat Core │                  │ FloatChat RAG   │
+ │ (Ocean Data AI) │                  │ Knowledge Base  │
+ └────────┬────────┘                  └────────┬────────┘
+          │                                    │
+          ▼                                    ▼
+
+ ┌─────────────────┐                 ┌──────────────────┐
+ │ Argo Float Data │                 │ Research Papers  │
+ │    (ERDDAP)     │                 │     (.txt)       │
+ └────────┬────────┘                 └────────┬─────────┘
+          │                                    │
+          ▼                                    ▼
+
+ ┌─────────────────┐                 ┌──────────────────┐
+ │ Gemini Analysis │                 │ Embeddings Model │
+ └────────┬────────┘                 └────────┬─────────┘
+          │                                    │
+          └──────────────┬─────────────────────┘
+                         ▼
+
+               ┌─────────────────┐
+               │ Final Response  │
+               └─────────────────┘
+⚙️ Technologies Used
+Component	Technology
+Programming Language	Python 3.11
+Frontend	Streamlit
+LLM	Google Gemini
+Vector Database	FAISS
+Embeddings	Sentence Transformers
+Data Source	Argo Float ERDDAP
+Visualization	Plotly
+Environment	Virtual Environment
+Version Control	Git & GitHub
+📂 Project Structure
+FLOATCHAT_AI/
+│
+├── docs/
+│   ├── argo_ocean_paper.md
+│   ├── salinity_research.md
+│   ├── indian_ocean_study.md
+│
 ├── notebooks/
-│   └── FloatChat_Development.ipynb   # exploration & prototyping
+│   └── FloatChat_Development.ipynb
+│
 ├── src/
-│   ├── floatchat_core.py             # NLP intent parsing + data fetching
-│   ├── floatchat_viz.py              # all Plotly visualizations
-│   └── floatchat_app.py              # Streamlit UI
-├── data/                             # cached .nc files (gitignored)
+│   ├── floatchat_app.py
+│   ├── floatchat_core.py
+│   ├── floatchat_rag.py
+│   ├── floatchat_viz.py
+│   └── build_vectorstore.py
+│
+├── vectorstore/
+│   ├── index.faiss
+│   └── index.pkl
+│
 ├── requirements.txt
-└── README.md
-```
+├── README.md
+└── .env
+🚀 Features
+Ocean Data Analytics
+Temperature profiles
+Salinity analysis
+Thermocline depth estimation
+Mixed layer depth analysis
+Regional ocean comparisons
+AI Assistant
+Natural language querying
+Context-aware responses
+Scientific explanations
+RAG Knowledge Base
+Oceanography papers
+Indian Ocean studies
+Salinity research
+Scientific citations
+Interactive Visualization
+Float locations
+T-S diagrams
+Time-series plots
+Comparative analysis charts
+📷 Screenshots
+Main Dashboard
 
-The three `src` modules are layered: `floatchat_app` (presentation) depends on
-`floatchat_viz` (charts) and `floatchat_core` (data + NLP). The core and viz
-layers have no Streamlit dependency, so they're reusable from the notebook.
+Add screenshot here
 
-## Quickstart
+screenshots/dashboard.png
+Temperature Profile Analysis
 
-```bash
-cd floatchat
-python -m venv .venv && source .venv/bin/activate   # optional
+Add screenshot here
+
+screenshots/temp_profile.png
+Salinity Comparison
+
+Add screenshot here
+
+screenshots/salinity_comparison.png
+RAG-Based Scientific Query
+
+Add screenshot here
+
+screenshots/rag_query.png
+🧠 RAG Workflow
+User Question
+      │
+      ▼
+Scientific Query Detection
+      │
+      ▼
+Vector Search (FAISS)
+      │
+      ▼
+Retrieve Relevant Chunks
+      │
+      ▼
+Gemini AI
+      │
+      ▼
+Context-Aware Answer
+📥 Installation
+Clone Repository
+git clone https://github.com/krishnadaruwala/AICTE-BATCH1-FLOATCHAT_AI.git
+
+cd AICTE-BATCH1-FLOATCHAT_AI
+Create Virtual Environment
+python -m venv .venv
+
+Activate:
+
+Windows
+
+.venv\Scripts\activate
+
+Linux/Mac
+
+source .venv/bin/activate
+Install Dependencies
 pip install -r requirements.txt
+Configure API Key
+
+Create .env
+
+GEMINI_API_KEY=YOUR_API_KEY_HERE
+🔨 Build Vector Database
+python src/build_vectorstore.py
+
+Expected Output:
+
+Vector database created successfully.
+▶️ Run Application
 streamlit run src/floatchat_app.py
-```
 
-Then open the URL Streamlit prints (default http://localhost:8501).
+Open:
 
-## Usage
+http://localhost:8501
+☁️ Deployment
+Streamlit Cloud
+Push project to GitHub
+Login to Streamlit Cloud
+Create New App
+Select repository
+Main file:
+src/floatchat_app.py
+Add Secret:
+GEMINI_API_KEY=YOUR_KEY
 
-The chat is seeded with an example conversation. Try prompts like:
+Deploy
 
-- `Show me temperature profiles in the Arabian Sea at 100–500m, Jan 2023`
-- `Compare Arabian Sea and Bay of Bengal salinity`
-- `Float tracks in the Indian Ocean`
+Alternative Deployment
+Hugging Face Spaces
+Render
+Railway
+Azure App Service
+📊 Example Queries
+Ocean Data
+Show temperature profile in Arabian Sea
+Compare Bay of Bengal and Arabian Sea salinity
+Generate T-S diagram for Arabian Sea
+RAG Queries
+What causes salinity variation?
+Explain thermocline
+What is Ekman transport?
+Explain Indian Ocean circulation
+📈 Project Outcomes
+Successfully integrated Gemini AI with Ocean Data Analytics.
+Built domain-specific RAG knowledge base.
+Enabled contextual scientific question answering.
+Developed interactive visualization dashboard.
+Improved accessibility of oceanographic information.
+🔮 Future Scope
+Technical Enhancements
+Multi-document retrieval
+Hybrid Search (BM25 + Vector Search)
+Query Routing using LLM
+Citation-based responses
+Source ranking
+Oceanographic Extensions
+Satellite Data Integration
+ENSO Monitoring
+Marine Heatwave Detection
+Ocean Anomaly Detection
+Climate Change Analysis
+Deployment Enhancements
+User Authentication
+Research Report Generation
+PDF Export
+Mobile Application
+👨‍🎓 Capstone Project Information
 
-`floatchat_core.parse_query` routes each prompt to an intent
-(`overview` / `compare` / `help`) and extracts region entities.
+Student Name: Krishna Daruwala
 
-## Going live
+College: Sarvajanik College of Commerce and Computer Application
 
-Replace the mock bodies in `floatchat_core.py` with real queries — the
-`fetch_erddap` stub shows the intended `argopy` pattern:
+University: Sarvajanik University
 
-```python
-from argopy import DataFetcher
-ds = DataFetcher().region([55, 78, 5, 26, 0, 500, '2023-01', '2023-02']).to_xarray()
-```
+Department: Faculty of Commerce
 
-Cache downloaded NetCDF files into `./data` (gitignored). For natural-language
-parsing beyond keywords, set `GEMINI_API_KEY` (or `GOOGLE_API_KEY`) — `parse_query`
-and `generate_insight` will call Google Gemini and keep the same
-`Query` return shape so the UI is unaffected.
+Program: Bachelor of Computer Applications (BCA)
+
+Project Title: FloatChat AI – AI-Powered Ocean Intelligence Assistant using Argo Float Data and RAG
+
+📚 References
+Python Documentation
+Streamlit Documentation
+Google Gemini API Docs
+FAISS Documentation
+Hugging Face Transformers
+Argo Program Official Website
+Scikit-Learn Documentation
+⭐ Acknowledgements
+
+This project was developed as part of the AICTE Capstone Project Program, combining Artificial Intelligence, Ocean Data Analytics, and Retrieval-Augmented Generation (RAG) to create an intelligent oceanographic assistant. 🌊🤖
