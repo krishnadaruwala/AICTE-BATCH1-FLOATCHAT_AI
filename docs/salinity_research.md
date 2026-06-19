@@ -50,7 +50,7 @@ To estimate the global impact of water salinity on agricultural productivity, se
 
 Electrical conductivity (EC) was used to measure salinity in water. EC measures the ability of an electrical charge to pass through water; distilled or deionized water is a poor conductor, and conductivity improves as dissolved ions (generally dissolved salts) increase. This makes EC a widely used salinity indicator (Miller, Bradford, and Peters 1988), with the added benefit of being easily measured at monitoring stations or with handheld monitors.
 
-Three data sets were used to measure surface water quality:
+e:
 
 - **Mekong River Basin Commission (MRC):** spans Cambodia, Lao PDR, Thailand, and Vietnam. Of 121 stations with EC data, 23 are in Cambodia/Lao PDR, 21 in Thailand, and 54 in Vietnam.
 - **Central Water Commission (CWC) of India:** maintains a network of 375 river monitoring stations across nearly all major river basins in India, sampled monthly or quarterly and analyzed at regional laboratories.
