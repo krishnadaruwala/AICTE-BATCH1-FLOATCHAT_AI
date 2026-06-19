@@ -80,7 +80,7 @@ It also doubles as a **RAG-powered oceanography tutor**: conceptual questions
 ## 🏗️ Architecture
 
 <p align="center">
-<img src="assets/architecture.svg" alt="FloatChat architecture diagram: Streamlit UI routes data questions to the agentic core (Gemini function-calling over argopy/ERDDAP or mock data) and conceptual questions to the RAG engine (FAISS vector store + knowledge base), both rendered through the Plotly/Folium viz module" width="100%">
+<img src="assets/floatchat_sysytem_architecture.png" alt="FloatChat architecture diagram: Streamlit UI routes data questions to the agentic core (Gemini function-calling over argopy/ERDDAP or mock data) and conceptual questions to the RAG engine (FAISS vector store + knowledge base), both rendered through the Plotly/Folium viz module" width="100%">
 </p>
 
 **Request flow:**
