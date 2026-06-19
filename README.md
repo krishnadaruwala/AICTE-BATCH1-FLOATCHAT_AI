@@ -45,13 +45,13 @@ It also doubles as a **RAG-powered oceanography tutor**: conceptual questions
 <table>
 <tr>
 <td align="center" width="100%">
-<img src="assets/screenshot_chat.svg" alt="FloatChat data-query view: sidebar filters, chat answer, float map and temperature-depth profile chart" width="100%">
+<img src="screenshots/Front_page.jpg" alt="FloatChat data-query view: sidebar filters, chat answer, float map and temperature-depth profile chart" width="100%">
 <br><sub><b>Data agent:</b> region/depth/date filters, narrative insight, live float-position map and depth profile</sub>
 </td>
 </tr>
 <tr>
 <td align="center" width="100%">
-<img src="assets/screenshot_compare.svg" alt="FloatChat comparison and RAG views: region comparison table/chart and a conceptual oceanography answer with sources" width="100%">
+<img src="screenshots/RAG.jpg" alt="FloatChat comparison and RAG views: region comparison table/chart and a conceptual oceanography answer with sources" width="100%">
 <br><sub><b>Region comparison</b> (table + bar chart) and the <b>RAG tutor</b> answering a conceptual question with cited sources</sub>
 </td>
 </tr>
@@ -80,7 +80,7 @@ It also doubles as a **RAG-powered oceanography tutor**: conceptual questions
 ## 🏗️ Architecture
 
 <p align="center">
-<img src="assets/floatchat_sysytem_architecture.png" alt="FloatChat architecture diagram: Streamlit UI routes data questions to the agentic core (Gemini function-calling over argopy/ERDDAP or mock data) and conceptual questions to the RAG engine (FAISS vector store + knowledge base), both rendered through the Plotly/Folium viz module" width="100%">
+<img src="assets/floatchat_system_architecture.png" alt="FloatChat architecture diagram: Streamlit UI routes data questions to the agentic core (Gemini function-calling over argopy/ERDDAP or mock data) and conceptual questions to the RAG engine (FAISS vector store + knowledge base), both rendered through the Plotly/Folium viz module" width="100%">
 </p>
 
 **Request flow:**
